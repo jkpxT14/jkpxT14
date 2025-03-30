@@ -1,1 +1,1 @@
-Let's Fxxking Go
+POSTECH
