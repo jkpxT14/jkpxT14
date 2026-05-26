@@ -1,3 +1,3 @@
-Jungwoo Kim
+Jungwoo Kim (jkpxT14)
 
-Mueunjae School of Undergraduate Studies, Pohang University of Science and Technology
+Department of Mathematics, Pohang University of Science and Technology
