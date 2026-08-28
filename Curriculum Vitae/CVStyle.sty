@@ -1,0 +1,138 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{CVStyle}[2026/08/29 Academic mathematics CV style v03]
+
+% =============================================================
+% Page and typography
+% =============================================================
+\RequirePackage[a4paper,top=2.15cm,bottom=2.15cm,left=2.35cm,right=2.35cm]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lmodern}
+\RequirePackage[protrusion=true,expansion=true]{microtype}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{ragged2e}
+\RequirePackage{fancyhdr}
+\RequirePackage{etoolbox}
+
+\definecolor{postechred}{HTML}{C80150}
+\definecolor{textgray}{HTML}{666666}
+
+% Color is reserved for text that carries institutional meaning.
+% Structural rules, headings, dates, and ordinary body text remain black.
+\newcommand{\institutiontext}[2]{\textcolor{#1}{#2}}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  pdfauthor={Jungwoo Kim},
+  pdftitle={Curriculum Vitae}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.025}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\fontsize{8.5}{10}\selectfont\thepage}
+
+% =============================================================
+% Header information
+% =============================================================
+\newcommand{\CVName}{}
+\newcommand{\CVDepartment}{}
+\newcommand{\CVInstitution}{}
+\newcommand{\CVLocation}{}
+\newcommand{\CVEmail}{}
+\newcommand{\CVWebsite}{}
+\newcommand{\CVGitHub}{}
+
+\newcommand{\setcvname}[1]{\renewcommand{\CVName}{#1}}
+\newcommand{\setcvdepartment}[1]{\renewcommand{\CVDepartment}{#1}}
+\newcommand{\setcvinstitution}[1]{\renewcommand{\CVInstitution}{#1}}
+\newcommand{\setcvlocation}[1]{\renewcommand{\CVLocation}{#1}}
+\newcommand{\setcvemail}[1]{\renewcommand{\CVEmail}{#1}}
+\newcommand{\setcvwebsite}[1]{\renewcommand{\CVWebsite}{#1}}
+\newcommand{\setcvgithub}[1]{\renewcommand{\CVGitHub}{#1}}
+
+\newcommand{\makecvheader}{%
+  \begin{center}
+    {\fontsize{21.5}{25}\selectfont\normalfont \CVName\par}
+    \vspace{0.36em}
+    {\fontsize{10.8}{13}\selectfont \CVDepartment\par}
+    \vspace{0.06em}
+    {\fontsize{10.8}{13}\selectfont
+      \CVInstitution%
+      \ifstrempty{\CVLocation}{}{\textcolor{black}{\,\textperiodcentered\,\CVLocation}}\par}
+    \vspace{0.28em}
+    {\fontsize{9.5}{11.5}\selectfont
+      \ifstrempty{\CVEmail}{}{\href{mailto:\CVEmail}{\CVEmail}}%
+      \ifstrempty{\CVWebsite}{}{\,\textperiodcentered\,\href{\CVWebsite}{\CVWebsite}}%
+      \ifstrempty{\CVGitHub}{}{\,\textperiodcentered\,\href{\CVGitHub}{\CVGitHub}}\par}
+  \end{center}
+  \vspace{0.20em}
+  {\color{black}\rule{\linewidth}{0.35pt}}\par
+  \vspace{0.72em}
+}
+
+% =============================================================
+% Section hierarchy
+% =============================================================
+\newcommand{\cvsection}[1]{%
+  \vspace{0.68em}
+  {\fontsize{12.3}{14.5}\selectfont\bfseries #1\par}
+  \vspace{0.10em}
+  {\color{black}\rule{\linewidth}{0.25pt}}\par
+  \vspace{0.38em}
+}
+
+\newcommand{\cvsubsection}[1]{%
+  \vspace{0.34em}
+  {\fontsize{10.8}{13}\selectfont\bfseries #1\par}
+  \vspace{0.12em}
+}
+
+\newcommand{\placeholder}[1]{{\itshape\color{textgray}[#1]}}
+\newcommand{\cvtext}[1]{#1\par}
+
+% =============================================================
+% Reusable entry structures
+% =============================================================
+% First line: principal academic item on the left, date on the right.
+% Following lines: degree, institution, advisor, venue, or brief details.
+\newcommand{\cventry}[4]{%
+  \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+    {\bfseries #1} & {#2} \\
+    \multicolumn{2}{@{}l@{}}{#3} \\
+    \multicolumn{2}{@{}l@{}}{#4}
+  \end{tabularx}\par
+}
+
+\newcommand{\cvtwoline}[3]{%
+  \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+    {\bfseries #1} & {#2} \\
+    \multicolumn{2}{@{}l@{}}{#3}
+  \end{tabularx}\par
+}
+
+\newenvironment{cvitems}{%
+  \begin{itemize}[leftmargin=1.25em,label=\raisebox{0.14ex}{\scriptsize$\bullet$},itemsep=0.10em,topsep=0.20em,parsep=0pt,partopsep=0pt]
+}{%
+  \end{itemize}
+}
+
+\newcommand{\cvpub}[2]{%
+  {\bfseries #1}\par
+  #2\par
+}
+
+\newcommand{\cvsimple}[2]{%
+  {\bfseries #1}\hfill #2\par
+}
