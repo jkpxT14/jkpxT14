@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{CVStyle}[2026/08/29 Mathematics academic CV style v08]
+\ProvidesPackage{CVStyle}[2026/08/29 Mathematics academic CV style v09]
 
 % =============================================================
 % Page and typography
@@ -101,8 +101,8 @@
 % Section hierarchy
 % =============================================================
 \newcommand{\cvsection}[1]{%
-  \Needspace{4.2\baselineskip}%
-  \par\vspace{0.56em}
+  \Needspace{6.0\baselineskip}%
+  \par\vspace{0.90em}
   {\fontsize{12.7}{14.7}\selectfont\normalfont #1\par}
   \vspace{0.035em}
   {\color{black}\rule{\linewidth}{0.28pt}}\par
@@ -187,6 +187,15 @@
   \end{tabularx}\par
 }
 
+% Variant with one extra line for a competition result or current status.
+\newcommand{\cvactivitywithresult}[4]{%
+  \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+    \cvprimary{#1} & #2 \\
+    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#3}\\[-0.03em]
+    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}
+  \end{tabularx}\par
+}
+
 % Non-academic or cross-domain activity/project. Keep these compact so they do
 % not visually compete with research and publications earlier in the CV.
 \newcommand{\cvselecteditem}[4]{%
@@ -210,6 +219,23 @@
     \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#3}%
     \ifstrempty{#4}{}{\\[-0.03em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}}%
   \end{tabularx}\par
+}
+
+
+% Repeated mentoring or teaching within one program: show the program once,
+% then accumulate semester-level records underneath it with a small indent.
+\newcommand{\cvteachingprogram}[1]{%
+  \cvprimary{#1}\par
+  \vspace{0.06em}%
+}
+
+\newcommand{\cvteachingrecord}[2]{%
+  \noindent\hspace*{0.42cm}%
+  \begin{minipage}{\dimexpr\linewidth-0.42cm\relax}
+    \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+      #1 & #2
+    \end{tabularx}
+  \end{minipage}\par
 }
 
 % Papers/preprints: numbered like a conventional academic publication list.
