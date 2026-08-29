@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{CVStyle}[2026/08/29 Mathematics academic CV style v06]
+\ProvidesPackage{CVStyle}[2026/08/29 Mathematics academic CV style v08]
 
 % =============================================================
 % Page and typography
@@ -27,6 +27,12 @@
 
 % Color is semantic, not decorative. Reserve it for institution-related text.
 \newcommand{\institutiontext}[2]{\textcolor{#1}{#2}}
+
+% Institution wrappers keep school identity colors consistent everywhere the
+% institution is named, including entries, event names, and descriptions.
+\newcommand{\postechtext}[1]{\institutiontext{POSTECHRed}{#1}}
+\newcommand{\kaisttext}[1]{\institutiontext{KAISTBlue}{#1}}
+\newcommand{\snutext}[1]{\institutiontext{SNUBlue}{#1}}
 
 \hypersetup{
   colorlinks=true,
