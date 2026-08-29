@@ -1,58 +1,47 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 \usepackage{CVStyle}
 
 % =============================================================
 % Identity
 % =============================================================
+% Keep the header short. Institution-related text may use its official
+% identity color; ordinary text and all structural elements remain black.
 \setcvname{Jungwoo Kim}
-\setcvdepartment{Department of Mathematics}
-\setcvinstitution{\institutiontext{postechred}{Pohang University of Science and Technology (POSTECH)}}
-\setcvlocation{Pohang, Republic of Korea}
-\setcvemail{your.email@example.com}
-\setcvwebsite{https://your-website.example}
-\setcvgithub{https://github.com/your-id}
+\setcvaffiliation{Department of Mathematics, \institutiontext{POSTECHRed}{Pohang University of Science and Technology (POSTECH)}}
+\setcvlocation{Seoul \textperiodcentered\ Pohang, Republic of Korea}
+\setcvemail{jkpxt14@postech.ac.kr}
+% Optional personal website:
+% \setcvwebsite{https://example.com}{https://example.com}
+\setcvgithub{https://github.com/jkpxT14}{https://github.com/jkpxT14}
 
 \begin{document}
 \makecvheader
 
 % =============================================================
-% Recommended order: mathematics undergraduate
+% Mathematics academic CV: undergraduate -> graduate student -> researcher
 % =============================================================
-%  1. Education
-%  2. Research Interests
-%  3. Research Experience
-%  4. Publications & Preprints       (when applicable)
-%  5. Honors & Awards
-%  6. Talks & Presentations          (when applicable)
-%  7. Academic Programs              (selective / meaningful only)
-%  8. Teaching & Mentoring           (when applicable)
-%  9. Service & Outreach             (when applicable)
-% 10. Selected Coursework            (optional; mainly undergraduate stage)
-% 11. Technical Skills               (optional)
+% Master principle: the source may contain every useful section, but the PDF
+% sent to a professor should show only sections with meaningful content.
+% Comment out an unused \input line and re-enable it later.
 %
-% Delete or comment out any unused section. Do not display empty sections
-% in a final CV merely to fill space.
-%
-% As the CV develops:
-% - Graduate student / early researcher: move Publications & Preprints upward.
-% - Researcher / faculty: uncomment Academic Appointments and place it first;
-%   split Honors, Fellowships, Talks, Teaching, Mentoring, and Service only
-%   when the amount of material actually justifies separate sections.
+% Research papers stay in Publications & Preprints.
+% Books/handbooks/lecture notes/expository writing stay in Books & Expository Works.
+% Mathematics-focused programs and representative roles stay in Academic Activities.
+% Broader non-mathematical experiences and personal projects belong near the end
+% in Selected Activities & Projects.
 % =============================================================
-
-% Future-career section; leave disabled during the undergraduate stage.
-% \input{Sections/AcademicAppointments}
 
 \input{Sections/Education}
 \input{Sections/ResearchInterests}
 \input{Sections/ResearchExperience}
 \input{Sections/PublicationsAndPreprints}
+\input{Sections/BooksAndExpositoryWorks}
 \input{Sections/HonorsAndAwards}
 \input{Sections/TalksAndPresentations}
-\input{Sections/AcademicPrograms}
+\input{Sections/AcademicActivities}
 \input{Sections/TeachingAndMentoring}
-\input{Sections/ServiceAndOutreach}
-\input{Sections/SelectedCoursework}
-\input{Sections/TechnicalSkills}
+\input{Sections/AcademicService}
+\input{Sections/SelectedActivitiesAndProjects}
+\input{Sections/LanguagesAndTechnicalSkills}
 
 \end{document}
