@@ -1,0 +1,116 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/02 Acknowledgements style v2]
+
+% =============================================================
+% Page and typography -- intentionally aligned with the current CV
+% =============================================================
+\RequirePackage[a4paper,top=1.88cm,bottom=1.82cm,left=2.12cm,right=2.12cm]{geometry}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{libertine}
+\RequirePackage[protrusion=true,expansion=true]{microtype}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{ragged2e}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage{etoolbox}
+\RequirePackage{needspace}
+
+\InputIfFileExists{InstitutionColors.tex}{}{}
+
+\definecolor{AckGray}{HTML}{666666}
+\definecolor{AckLightGray}{HTML}{8A8A8A}
+
+% Institution color is semantic, not decorative.
+\newcommand{\institutiontext}[2]{\textcolor{#1}{#2}}
+\newcommand{\postechtext}[1]{\institutiontext{POSTECHRed}{#1}}
+\newcommand{\koreatext}[1]{\institutiontext{KoreaUniversityCrimson}{#1}}
+\newcommand{\snutext}[1]{\institutiontext{SNUBlue}{#1}}
+\newcommand{\yonseitext}[1]{\institutiontext{YonseiBlue}{#1}}
+\newcommand{\cambridgetext}[1]{\institutiontext{CambridgeDarkBlue}{#1}}
+\newcommand{\mittext}[1]{\institutiontext{MITRed}{#1}}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=black,
+  linkcolor=black,
+  citecolor=black,
+  pdfauthor={Jungwoo Kim},
+  pdftitle={Acknowledgements}
+}
+\urlstyle{same}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.01}
+\AtBeginDocument{\RaggedRight}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot[C]{\fontsize{8.0}{9.3}\selectfont\color{AckGray}\thepage\,/\,\pageref*{LastPage}}
+\setlength{\footskip}{0.78cm}
+
+% =============================================================
+% Owner identity
+% =============================================================
+\newcommand{\AckOwnerName}{}
+\newcommand{\AckOwnerAffiliation}{}
+\newcommand{\setackownername}[1]{\renewcommand{\AckOwnerName}{#1}}
+\newcommand{\setackowneraffiliation}[1]{\renewcommand{\AckOwnerAffiliation}{#1}}
+
+\newcommand{\makeackheader}{%
+  \begin{center}
+    {\fontsize{22.1}{25.0}\selectfont\normalfont \AckOwnerName\par}
+    \vspace{0.31em}
+    {\fontsize{10.2}{12.1}\selectfont \AckOwnerAffiliation\par}
+  \end{center}
+  \vspace{0.88em}
+  \begin{center}
+    {\fontsize{16.0}{18.5}\selectfont\normalfont Acknowledgements\par}
+    \vspace{0.34em}
+    {\fontsize{9.8}{12.0}\selectfont\color{AckGray}
+      Thank you for being a part of my academic journey.\par}
+  \end{center}
+  \vspace{0.80em}
+}
+
+% =============================================================
+% Section hierarchy -- same thin-rule language as the CV
+% =============================================================
+\newcommand{\acksection}[1]{%
+  \Needspace{4.5\baselineskip}%
+  \par\vspace{1.12em}
+  {\fontsize{12.7}{14.7}\selectfont\normalfont #1\par}
+  \vspace{0.035em}
+  {\color{black}\rule{\linewidth}{0.28pt}}\par
+  \vspace{0.46em}
+}
+
+% =============================================================
+% Person and shared-history entries
+% =============================================================
+% First line: the person. Second line: position, unit, institution.
+% Institution should be wrapped in its corresponding color command.
+\newcommand{\ackperson}[2]{%
+  \Needspace{3.2\baselineskip}%
+  {\fontsize{10.2}{12.0}\selectfont\bfseries #1\par}
+  \vspace{0.04em}
+  {\fontsize{9.7}{11.7}\selectfont #2\par}
+  \vspace{0.17em}
+}
+
+% Optional activity/history line for future entries.
+% Description left; date or period aligned at the far right, CV-style.
+\newcommand{\ackactivity}[2]{%
+  \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+    {\fontsize{9.7}{11.7}\selectfont #1} & {\fontsize{9.7}{11.7}\selectfont #2}
+  \end{tabularx}\par
+}
+
+% Space between people, without decorative separators.
+\newcommand{\ackpersonspace}{\vspace{0.62em}}
