@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{AcknowledgementsStyle}[2026/09/02 Acknowledgements style v2]
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/02 Acknowledgements style v3]
 
 % =============================================================
 % Page and typography -- intentionally aligned with the current CV
@@ -32,6 +32,7 @@
 \newcommand{\yonseitext}[1]{\institutiontext{YonseiBlue}{#1}}
 \newcommand{\cambridgetext}[1]{\institutiontext{CambridgeDarkBlue}{#1}}
 \newcommand{\mittext}[1]{\institutiontext{MITRed}{#1}}
+\newcommand{\kaisttext}[1]{\institutiontext{KAISTBlue}{#1}}
 
 \hypersetup{
   colorlinks=true,
@@ -83,7 +84,7 @@
 % Section hierarchy -- same thin-rule language as the CV
 % =============================================================
 \newcommand{\acksection}[1]{%
-  \Needspace{4.5\baselineskip}%
+  \Needspace{2.6\baselineskip}%
   \par\vspace{1.12em}
   {\fontsize{12.7}{14.7}\selectfont\normalfont #1\par}
   \vspace{0.035em}
