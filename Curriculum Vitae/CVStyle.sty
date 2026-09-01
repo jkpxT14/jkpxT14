@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{CVStyle}[2026/08/30 Mathematics academic CV style v10]
+\ProvidesPackage{CVStyle}[2026/09/02 Mathematics academic CV style v11]
 
 % =============================================================
 % Page and typography
@@ -28,11 +28,15 @@
 % Color is semantic, not decorative. Reserve it for institution-related text.
 \newcommand{\institutiontext}[2]{\textcolor{#1}{#2}}
 
-% Institution wrappers keep school identity colors consistent everywhere the
-% institution is named, including entries, event names, and descriptions.
+% Shared institution wrappers keep school identity colors consistent across the
+% personal document family.
 \newcommand{\postechtext}[1]{\institutiontext{POSTECHRed}{#1}}
-\newcommand{\kaisttext}[1]{\institutiontext{KAISTBlue}{#1}}
+\newcommand{\koreatext}[1]{\institutiontext{KoreaUniversityCrimson}{#1}}
 \newcommand{\snutext}[1]{\institutiontext{SNUBlue}{#1}}
+\newcommand{\yonseitext}[1]{\institutiontext{YonseiBlue}{#1}}
+\newcommand{\cambridgetext}[1]{\institutiontext{CambridgeDarkBlue}{#1}}
+\newcommand{\mittext}[1]{\institutiontext{MITRed}{#1}}
+\newcommand{\kaisttext}[1]{\institutiontext{KAISTBlue}{#1}}
 
 \hypersetup{
   colorlinks=true,
@@ -117,6 +121,8 @@
   \vspace{0.08em}
 }
 
+% Placeholder command is retained for source-side templates only; empty CV
+% sections should not render placeholder content in the PDF.
 \newcommand{\placeholder}[1]{{\itshape\color{CVLightGray}[#1]}}
 \newcommand{\cvtext}[1]{#1\par}
 
@@ -220,7 +226,6 @@
     \ifstrempty{#4}{}{\\[-0.03em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}}%
   \end{tabularx}\par
 }
-
 
 % Repeated mentoring or teaching within one program: show the program once,
 % then accumulate semester-level records underneath it with a small indent.
