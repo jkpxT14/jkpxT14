@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{AcknowledgementsStyle}[2026/09/02 Acknowledgements style v4]
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/04 Acknowledgements style v5]
 
 % =============================================================
 % Page and typography -- intentionally aligned with the current CV
@@ -70,14 +70,14 @@
     \vspace{0.31em}
     {\fontsize{10.2}{12.1}\selectfont \AckOwnerAffiliation\par}
   \end{center}
-  \vspace{0.88em}
+  \vspace{0.78em}
   \begin{center}
     {\fontsize{16.0}{18.5}\selectfont\normalfont Acknowledgements\par}
     \vspace{0.34em}
     {\fontsize{9.8}{12.0}\selectfont\color{AckGray}
       Thank you for being a part of my academic journey.\par}
   \end{center}
-  \vspace{0.80em}
+  \vspace{0.68em}
 }
 
 % =============================================================
@@ -85,7 +85,7 @@
 % =============================================================
 \newcommand{\acksection}[1]{%
   \Needspace{2.6\baselineskip}%
-  \par\vspace{1.12em}
+  \par\vspace{0.98em}
   {\fontsize{12.7}{14.7}\selectfont\normalfont #1\par}
   \vspace{0.035em}
   {\color{black}\rule{\linewidth}{0.28pt}}\par
@@ -102,7 +102,7 @@
   {\fontsize{10.2}{12.0}\selectfont\bfseries #1\par}
   \vspace{0.04em}
   {\fontsize{9.7}{11.7}\selectfont #2\par}
-  \vspace{0.17em}
+  \vspace{0.12em}
 }
 
 % Optional activity/history line for future entries.
@@ -114,4 +114,4 @@
 }
 
 % Space between people, without decorative separators.
-\newcommand{\ackpersonspace}{\vspace{0.62em}}
+\newcommand{\ackpersonspace}{\vspace{0.50em}}
