@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{CVStyle}[2026/09/02 Mathematics academic CV style v11]
+\ProvidesPackage{CVStyle}[2026/09/04 Mathematics academic CV style v12]
 
 % =============================================================
 % Page and typography
@@ -71,6 +71,7 @@
 \newcommand{\CVWebsiteText}{}
 \newcommand{\CVGitHubURL}{}
 \newcommand{\CVGitHubText}{}
+\newcommand{\CVPhone}{}
 
 \newcommand{\setcvname}[1]{\renewcommand{\CVName}{#1}}
 \newcommand{\setcvaffiliation}[1]{\renewcommand{\CVAffiliation}{#1}}
@@ -84,6 +85,7 @@
   \renewcommand{\CVGitHubURL}{#1}%
   \renewcommand{\CVGitHubText}{#2}%
 }
+\newcommand{\setcvphone}[1]{\renewcommand{\CVPhone}{#1}}
 
 \newcommand{\makecvheader}{%
   \begin{center}
@@ -96,7 +98,8 @@
     {\fontsize{9.4}{11.2}\selectfont
       \href{mailto:\CVEmail}{\CVEmail}%
       \ifdefempty{\CVWebsiteURL}{}{,\enspace\href{\CVWebsiteURL}{\CVWebsiteText}}%
-      \ifdefempty{\CVGitHubURL}{}{,\enspace\href{\CVGitHubURL}{\CVGitHubText}}\par}
+      \ifdefempty{\CVGitHubURL}{}{,\enspace\href{\CVGitHubURL}{\CVGitHubText}}%
+      \ifdefempty{\CVPhone}{}{,\enspace\CVPhone}\par}
   \end{center}
   \vspace{0.68em}
 }
