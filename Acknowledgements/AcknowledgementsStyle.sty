@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{AcknowledgementsStyle}[2026/09/04 Acknowledgements style v5]
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/04 Acknowledgements style v6]
 
 % =============================================================
 % Page and typography -- intentionally aligned with the current CV
@@ -36,7 +36,7 @@
 
 \hypersetup{
   colorlinks=true,
-  urlcolor=black,
+  urlcolor=AckGray,
   linkcolor=black,
   citecolor=black,
   pdfauthor={Jungwoo Kim},
@@ -57,18 +57,31 @@
 \setlength{\footskip}{0.78cm}
 
 % =============================================================
+% Contact helpers
+% =============================================================
+\newcommand{\ackemail}[1]{\href{mailto:#1}{#1}}
+\newcommand{\ackurl}[1]{\href{#1}{\nolinkurl{#1}}}
+\newcommand{\ackcontactsep}{\enspace\textperiodcentered\enspace}
+
+% =============================================================
 % Owner identity
 % =============================================================
 \newcommand{\AckOwnerName}{}
 \newcommand{\AckOwnerAffiliation}{}
+\newcommand{\AckOwnerContact}{}
 \newcommand{\setackownername}[1]{\renewcommand{\AckOwnerName}{#1}}
 \newcommand{\setackowneraffiliation}[1]{\renewcommand{\AckOwnerAffiliation}{#1}}
+\newcommand{\setackownercontact}[1]{\renewcommand{\AckOwnerContact}{#1}}
 
 \newcommand{\makeackheader}{%
   \begin{center}
     {\fontsize{22.1}{25.0}\selectfont\normalfont \AckOwnerName\par}
     \vspace{0.31em}
     {\fontsize{10.2}{12.1}\selectfont \AckOwnerAffiliation\par}
+    \ifdefempty{\AckOwnerContact}{}{%
+      \vspace{0.09em}
+      {\fontsize{8.9}{10.6}\selectfont\color{AckGray}\AckOwnerContact\par}%
+    }
   \end{center}
   \vspace{0.78em}
   \begin{center}
@@ -77,41 +90,51 @@
     {\fontsize{9.8}{12.0}\selectfont\color{AckGray}
       Thank you for being a part of my academic journey.\par}
   \end{center}
-  \vspace{0.68em}
+  \vspace{0.78em}
 }
 
 % =============================================================
 % Section hierarchy -- same thin-rule language as the CV
 % =============================================================
 \newcommand{\acksection}[1]{%
-  \Needspace{2.6\baselineskip}%
-  \par\vspace{0.98em}
+  \Needspace{2.8\baselineskip}%
+  \par\vspace{1.38em}
   {\fontsize{12.7}{14.7}\selectfont\normalfont #1\par}
   \vspace{0.035em}
   {\color{black}\rule{\linewidth}{0.28pt}}\par
-  \vspace{0.46em}
+  \vspace{0.54em}
 }
 
 % =============================================================
-% Person and shared-history entries
+% Person profile and shared-history entries
 % =============================================================
-% First line: the person. Second line: position, unit, institution.
-% Institution should be wrapped in its corresponding color command.
+% Name and current position form the profile block. Contact information, when
+% present, stays with that profile. Shared history is visually subordinate.
 \newcommand{\ackperson}[2]{%
   \Needspace{3.2\baselineskip}%
   {\fontsize{10.2}{12.0}\selectfont\bfseries #1\par}
   \vspace{0.04em}
   {\fontsize{9.7}{11.7}\selectfont #2\par}
-  \vspace{0.12em}
+  \vspace{0.10em}
 }
 
-% Optional activity/history line for future entries.
-% Description left; date or period aligned at the far right, CV-style.
+\newcommand{\ackcontact}[1]{%
+  {\fontsize{8.9}{10.6}\selectfont\color{AckGray}#1\par}%
+  \vspace{0.10em}
+}
+
+% Shared activities are a lightly indented sub-list. The middle dot is part of
+% the text itself, so the description begins naturally immediately after it.
 \newcommand{\ackactivity}[2]{%
-  \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
-    {\fontsize{9.7}{11.7}\selectfont #1} & {\fontsize{9.7}{11.7}\selectfont #2}
-  \end{tabularx}\par
+  \vspace{0.04em}%
+  \noindent\hspace*{0.26cm}%
+  \begin{minipage}{\dimexpr\linewidth-0.26cm\relax}
+    \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+      {\fontsize{9.5}{11.3}\selectfont\textperiodcentered\ #1} &
+      {\fontsize{9.5}{11.3}\selectfont #2}
+    \end{tabularx}
+  \end{minipage}\par
 }
 
-% Space between people, without decorative separators.
-\newcommand{\ackpersonspace}{\vspace{0.50em}}
+% Space belongs between people, not inside one person's profile block.
+\newcommand{\ackpersonspace}{\vspace{1.32em}}
