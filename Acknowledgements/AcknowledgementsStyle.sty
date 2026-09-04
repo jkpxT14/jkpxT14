@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{AcknowledgementsStyle}[2026/09/04 Acknowledgements style v7]
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/05 Acknowledgements style v8]
 
 % =============================================================
 % Page and typography -- intentionally aligned with the current CV
@@ -36,7 +36,7 @@
 
 \hypersetup{
   colorlinks=true,
-  urlcolor=AckGray,
+  urlcolor=black,
   linkcolor=black,
   citecolor=black,
   pdfauthor={Jungwoo Kim},
@@ -61,7 +61,7 @@
 % =============================================================
 \newcommand{\ackemail}[1]{\href{mailto:#1}{#1}}
 \newcommand{\ackurl}[1]{\href{#1}{\nolinkurl{#1}}}
-\newcommand{\ackcontactsep}{\enspace\textperiodcentered\enspace}
+\newcommand{\ackcontactsep}{,\enspace}
 
 % =============================================================
 % Owner identity
@@ -80,7 +80,7 @@
     {\fontsize{10.2}{12.1}\selectfont \AckOwnerAffiliation\par}
     \ifdefempty{\AckOwnerContact}{}{%
       \vspace{0.09em}
-      {\fontsize{8.9}{10.6}\selectfont\color{AckGray}\AckOwnerContact\par}%
+      {\fontsize{8.9}{10.6}\selectfont\AckOwnerContact\par}%
     }
   \end{center}
   \vspace{0.78em}
@@ -98,11 +98,11 @@
 % =============================================================
 \newcommand{\acksection}[1]{%
   \Needspace{2.8\baselineskip}%
-  \par\vspace{1.38em}
+  \par\vspace{1.14em}
   {\fontsize{12.7}{14.7}\selectfont\normalfont #1\par}
   \vspace{0.035em}
   {\color{black}\rule{\linewidth}{0.28pt}}\par
-  \vspace{0.54em}
+  \vspace{0.30em}
 }
 
 % =============================================================
@@ -119,7 +119,8 @@
 }
 
 \newcommand{\ackcontact}[1]{%
-  {\fontsize{8.9}{10.6}\selectfont\color{AckGray}#1\par}%
+  {\hypersetup{urlcolor=AckGray}%
+   \fontsize{8.9}{10.6}\selectfont\color{AckGray}#1\par}%
   \vspace{0.10em}
 }
 
