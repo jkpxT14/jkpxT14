@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{AcknowledgementsStyle}[2026/09/04 Acknowledgements style v6]
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/04 Acknowledgements style v7]
 
 % =============================================================
 % Page and typography -- intentionally aligned with the current CV
@@ -127,8 +127,8 @@
 % the text itself, so the description begins naturally immediately after it.
 \newcommand{\ackactivity}[2]{%
   \vspace{0.04em}%
-  \noindent\hspace*{0.26cm}%
-  \begin{minipage}{\dimexpr\linewidth-0.26cm\relax}
+  \noindent\hspace*{0.20cm}%
+  \begin{minipage}{\dimexpr\linewidth-0.20cm\relax}
     \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
       {\fontsize{9.5}{11.3}\selectfont\textperiodcentered\ #1} &
       {\fontsize{9.5}{11.3}\selectfont #2}
@@ -137,4 +137,4 @@
 }
 
 % Space belongs between people, not inside one person's profile block.
-\newcommand{\ackpersonspace}{\vspace{1.32em}}
+\newcommand{\ackpersonspace}{\vspace{0.92em}}

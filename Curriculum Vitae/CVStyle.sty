@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{CVStyle}[2026/09/04 Mathematics academic CV style v12]
+\ProvidesPackage{CVStyle}[2026/09/04 Mathematics academic CV style v13]
 
 % =============================================================
 % Page and typography
@@ -246,22 +246,30 @@
   \end{minipage}\par
 }
 
-% Papers/preprints: numbered like a conventional academic publication list.
+% Scholarly works use a title-first hierarchy rather than a bibliography-style
+% citation. Author names form a linguistic list and therefore use commas;
+% \cvmetasep is reserved for short, parallel publication metadata.
+\newcommand{\cvworkauthors}[1]{{\fontsize{9.6}{11.3}\selectfont #1}}
+\newcommand{\cvmetasep}{\enspace\textperiodcentered\enspace}
+
+% Papers and preprints: title / year; authors; venue, status, or bibliographic
+% metadata. Do not number entries like a reference list.
 \newcommand{\cvpublication}[4]{%
-  \begin{tabularx}{\linewidth}{@{}p{1.8em}>{\RaggedRight\arraybackslash}X@{}}
-    [#1] & \cvprimary{#2} \\
-         & #3 \\
-         & #4
+  \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+    \cvprimary{#1} & #2 \\
+    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{\cvworkauthors{#3}}%
+    \ifstrempty{#4}{}{\\[-0.01em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}}%
   \end{tabularx}\par
 }
 
-% Books, handbooks, lecture notes, and expository writing are intentionally
-% separate from research publications. State the type/status honestly.
+% Books, handbooks, lecture notes, and expository writing follow the same
+% title-first hierarchy. Book/work titles remain italic; authors are separated
+% from prose descriptions on their own metadata line.
 \newcommand{\cvwrittenwork}[4]{%
   \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
     {\itshape #1} & #2 \\
-    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#3}%
-    \ifstrempty{#4}{}{\\[-0.03em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}}%
+    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{\cvworkauthors{#3}}%
+    \ifstrempty{#4}{}{\\[-0.01em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}}%
   \end{tabularx}\par
 }
 
