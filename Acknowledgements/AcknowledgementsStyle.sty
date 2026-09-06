@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{AcknowledgementsStyle}[2026/09/05 Acknowledgements style v8]
+\ProvidesPackage{AcknowledgementsStyle}[2026/09/06 Acknowledgements style v9]
 
 % =============================================================
 % Page and typography -- intentionally aligned with the current CV
@@ -134,6 +134,17 @@
       {\fontsize{9.5}{11.3}\selectfont\textperiodcentered\ #1} &
       {\fontsize{9.5}{11.3}\selectfont #2}
     \end{tabularx}
+  \end{minipage}\par
+}
+
+% Personal acknowledgements use the same subordinate visual grammar as shared
+% activities, but without a date column. Wrapped lines align with the note text.
+\newcommand{\acknote}[1]{%
+  \vspace{0.04em}%
+  \noindent\hspace*{0.20cm}%
+  \begin{minipage}{\dimexpr\linewidth-0.20cm\relax}
+    {\fontsize{9.5}{11.3}\selectfont
+      \hangindent=0.72em\hangafter=1\textperiodcentered\ #1\par}%
   \end{minipage}\par
 }
 
