@@ -1,10 +1,10 @@
 # Personal Document Style Guide
 
-This guide defines the shared design, typography, language, and maintenance conventions for Jungwoo Kim's personal academic documents. The current document family consists of the Curriculum Vitae and Acknowledgements. The documents should feel visibly related without being forced into identical information density or wording.
+This guide defines the shared design, typography, language, and maintenance conventions for Jungwoo Kim's personal academic documents. The current document family consists of the Curriculum Vitae, Acknowledgements, and Record of Studies. The documents should feel visibly related without being forced into identical information density or wording.
 
 ## 1. Core Principle
 
-- Treat the Curriculum Vitae and Acknowledgements as members of one restrained academic document family.
+- Treat the Curriculum Vitae, Acknowledgements, and Record of Studies as members of one restrained academic document family.
 - Preserve a clean, single-column, serif-based design with ample white space and minimal decoration.
 - Keep structural text black. Use institutional colors semantically, not decoratively.
 - Preserve intentional document-specific differences when they serve the document's purpose.
@@ -32,7 +32,7 @@ Page-break safeguards such as `Needspace` may differ by document because they ar
 
 ## 3. Color
 
-The Curriculum Vitae and Acknowledgements use the same `InstitutionColors.tex` definitions.
+The Curriculum Vitae, Acknowledgements, and Record of Studies use the same `InstitutionColors.tex` definitions.
 
 Institutional color is reserved for institution-related text. Dates, section rules, punctuation, hyphens, parentheses, descriptive prose, and other structural elements remain black unless explicitly defined otherwise.
 
@@ -166,6 +166,10 @@ Examples:
 
 The Acknowledgements owner affiliation should remain compact, e.g. `Undergraduate Student, Department of Mathematics, POSTECH`, rather than reproducing the longer CV affiliation.
 
+### 5.3 Record of Studies
+
+Use compact institutional names for course entries, following the Acknowledgements convention, and apply each institution's official color. Keep course codes, semesters, and separators black.
+
 ## 6. Header Conventions
 
 ### Curriculum Vitae
@@ -182,9 +186,13 @@ Owner contact text is black and uses commas between contact items.
 
 Contact information attached to other people in Acknowledgements remains visually subordinate: smaller and gray, while still using commas between contact items.
 
+### Record of Studies
+
+Use the Acknowledgements owner identity block (name, compact affiliation, and useful contact items), followed by the centered document title `Record of Studies` and the one-line gray subtitle `The books, papers, and courses that have shaped my academic journey.` Match the Acknowledgements subtitle typography and spacing.
+
 ## 7. Sections and Spacing
 
-Both documents use the same visible section language:
+All three documents use the same visible section language:
 
 - 12.7 pt / 14.7 pt section titles.
 - Normal-weight section titles.
@@ -192,7 +200,7 @@ Both documents use the same visible section language:
 - 1.14 em before the section.
 - 0.30 em below the hairline.
 
-Internal entry spacing may differ when the document's content structure requires it. For example, Acknowledgements uses dedicated spacing between people, while the CV uses entry-specific tabular structures.
+Internal entry spacing may differ when the document's content structure requires it. For example, Acknowledgements uses dedicated spacing between people, while the CV uses entry-specific tabular structures. Record of Studies manages consistent spacing automatically for books, papers, and courses.
 
 ## 8. Scholarly Works in the CV
 
@@ -250,19 +258,49 @@ The documents should be consistent, not identical.
 
 - The CV is formal, institution-focused, and designed for academic evaluation.
 - Acknowledgements is people-focused and intentionally lighter in information density.
+- Record of Studies is a concise personal record of books studied, papers studied, and courses taken.
 - The CV may use full institution names where academically important.
-- Acknowledgements may prefer established abbreviations and shorter affiliations.
+- Acknowledgements and Record of Studies may prefer established abbreviations and shorter affiliations.
 - Acknowledgements may use small gray contact metadata for other people.
 - Acknowledgements has its own centered document title and one-line message beneath the owner identity block.
+- Record of Studies has a centered document title with a one-line gray subtitle and its own title-first entry layout.
 
 These differences are intentional and should not be normalized away merely for visual symmetry.
 
 ## 12. Maintenance Rule
 
-When updating either document:
+When updating any of these documents:
 
 1. Start from the latest user-maintained source.
 2. Preserve existing user edits outside the requested scope.
 3. Apply this guide only where a genuine cross-document inconsistency exists or where the user explicitly requests normalization.
-4. Keep `InstitutionColors.tex` synchronized between the two document folders.
+4. Keep `InstitutionColors.tex` synchronized between the document folders.
 5. Recompile and visually inspect the PDFs after any style or spacing change.
+
+## 13. Record of Studies Entries
+
+### Books and Papers
+
+- Use the title-first hierarchy: title on the first line, author(s) on the next.
+- Titles use upright bold type, without italics; authors use smaller regular type.
+- Do not use bibliography-style author-first entries, numbering, automatic year labels, or automatic journal information.
+- Comma-separate multiple authors; preserve distinguishing diacritics in names.
+- Ordinarily omit edition numbers. When a Global Edition, International Edition, or International Student Edition is necessary to distinguish the book studied, append that designation to the title after a comma, in the same title style.
+- An optional `(In Progress)` marker appears after the title in smaller gray type. Its absence is not a claim that the whole book or paper has been completed.
+- Optional bibliographic or study details may appear on a subordinate line when explicitly desired.
+
+### Courses
+
+- Use the course title first, then the instructor, then the institution and optional course code.
+- Place the semester at the right of the title line when available; use `2025 Spring` / `2025 Fall` notation.
+- Apply official institution colors only to the institution name, not to course codes or separators.
+- Course codes and semesters may be omitted without creating empty labels or dangling separators.
+- Keep the instructor's chosen name spelling when supplied, using the owner's preferred conventional capitalization unless instructed otherwise.
+
+### Sections and Source Structure
+
+- The initial sections are `Books`, `Papers`, and `Courses` in that order. An empty section remains visible without a placeholder.
+- Do not introduce subject-specific subsections before they are needed; the structure should remain extensible.
+- Keep entry data in `Sections/Books.tex`, `Sections/Papers.tex`, and `Sections/Courses.tex`, separate from the layout macros in `RoSStyle.sty`.
+- Let the style package control spacing, line breaks, and page-break protection; content files should not require manual `\vspace` commands.
+- Use the repository-root `.gitignore` for LaTeX build files and retain only relevant source and the generated PDF in release ZIP packages.
