@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{CVStyle}[2026/09/04 Mathematics academic CV style v13]
+\ProvidesPackage{CVStyle}[2026/11/12 Mathematics academic CV style v14]
 
 % =============================================================
 % Page and typography
@@ -187,8 +187,9 @@
   \end{tabularx}\par
 }
 
-% Academic activities: representative roles, selective programs, summer
-% schools, REUs, workshops, and substantive competition participation.
+% Academic activities: meaningful, sustained scholarly participation, including
+% representative teams, supervised study and learning/reading seminars, as well
+% as selective programs, summer schools, and substantive competitions.
 \newcommand{\cvactivity}[3]{%
   \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
     \cvprimary{#1} & #2 \\
@@ -262,14 +263,17 @@
   \end{tabularx}\par
 }
 
-% Books, handbooks, lecture notes, and expository writing follow the same
-% title-first hierarchy. Book/work titles remain italic; authors are separated
-% from prose descriptions on their own metadata line.
-\newcommand{\cvwrittenwork}[4]{%
+% Books and expository works use the same upright-bold entry-title hierarchy
+% as other CV entries and the Record of Studies. In running prose, book titles
+% may still be italicized. Optional preparation status appears just after the
+% title, as small upright gray text, while a known date stays right-aligned.
+\newcommand{\cvworkstatus}[1]{{\fontsize{8.9}{10.4}\selectfont\normalfont\color{CVGray}(#1)}}
+\newcommand{\cvwrittenwork}[5][]{%
   \begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
-    {\itshape #1} & #2 \\
-    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{\cvworkauthors{#3}}%
-    \ifstrempty{#4}{}{\\[-0.01em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#4}}%
+    \cvprimary{#2}%
+    \ifstrempty{#1}{}{\nobreak\hspace{0.42em}\cvworkstatus{#1}} & #3 \\
+    \multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{\cvworkauthors{#4}}%
+    \ifstrempty{#5}{}{\\[-0.01em]\multicolumn{2}{@{}>{\RaggedRight\arraybackslash}p{\linewidth}@{}}{#5}}%
   \end{tabularx}\par
 }
 

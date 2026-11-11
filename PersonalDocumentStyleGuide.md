@@ -129,7 +129,7 @@ Examples:
 - `Books & Expository Works`
 - `Friends & Peers`
 
-Use `and` in ordinary prose unless an official name requires otherwise.
+Use `and` in ordinary prose unless an official name requires it.
 
 ## 5. Institution Naming
 
@@ -230,7 +230,9 @@ Jungwoo Kim
 A comprehensive mathematics handbook ...
 ```
 
-Book and expository-work titles may remain italic. Publication titles may use the CV's primary-entry emphasis. The common design language is the title-first hierarchy, not identical typography for every work type.
+Standalone scholarly-work entry titles in the CV (both publications and books/expository works) use **upright bold**, consistent with the CV's primary-entry hierarchy and the standalone book/paper entries in Record of Studies. This is an entry-heading convention, not a rule against scholarly italics: book titles mentioned within ordinary sentences and descriptions retain standard *italic* styling. Authors remain smaller, upright regular text. Different document purposes may still require different entry spacing and metadata arrangements.
+
+An unfinished book may show a parenthesized status, e.g. `(In Preparation)`, immediately after its title in smaller upright gray type, echoing Record of Studies' `(In Progress)` status without changing the distinct meanings of those labels. A completed work retains its date at the right; an in-preparation work need not display a speculative completion year. The absence of a status label does not itself establish formal publication.
 
 ## 9. Event and Role Hierarchy
 
@@ -242,7 +244,9 @@ Example in Acknowledgements:
 
 - `2026 KAIST-POSTECH Science War — Science Quiz Representative Team`
 
-The CV may express the same structure across multiple lines when its entry hierarchy calls for it.
+The CV may express the same structure across multiple lines when its entry hierarchy calls for it. When sustained preparation and team membership are more significant than the one-day event, the CV may lead with the representative-team role and show the event on a subordinate line, while preserving the official year-specific event name, outcome, and the actual participation period. This does not require changing the event-first form in Acknowledgements.
+
+In the CV, *Academic Activities* groups sustained scholarly participation outside formal research appointments: supervised reading, learning or reading seminars, substantial academic programs, and representative-team participation. Enter only actual activities. Genuine research projects belong to *Research Experience*; formal academic presentations to *Talks & Presentations*; seminar organization and similar contributions to *Academic Service*. An agreed but not yet commenced reading arrangement is not an active CV entry.
 
 ## 10. Dates and Ranges
 
@@ -256,7 +260,7 @@ The CV may express the same structure across multiple lines when its entry hiera
 
 The documents should be consistent, not identical.
 
-- The CV is formal, institution-focused, and designed for academic evaluation.
+- The CV is formal, institution-focused, and designed for academic evaluation. Its stable section order is Education; Research & Academic Interests; Research Experience; Academic Activities; Publications & Preprints; Books & Expository Works; Talks & Presentations; Honors & Awards; Teaching & Mentoring; Academic Service; Selected Activities & Projects; Languages & Technical Skills.
 - Acknowledgements is people-focused and intentionally lighter in information density.
 - Record of Studies is a concise personal record of books studied, papers studied, and courses taken.
 - The CV may use full institution names where academically important.
